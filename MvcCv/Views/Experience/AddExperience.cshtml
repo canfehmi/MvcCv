@@ -1,0 +1,35 @@
+﻿@model MvcCv.DAL.Entities.Experience
+@{
+    ViewData["Title"] = "AddExperience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h1>Yeni Deneyim Ekle</h1>
+
+<form method="post">
+    <label>İş Yeri:</label>
+    <input class="form-control" type="text" name="Title" placeholder="İşyeri adını yazın..." />
+    @Html.ValidationMessageFor(x => x.Title, "", new {@style = "color: red"})
+    <br />
+    <label>Görev & İş Tanımı:</label>
+    <input class="form-control" type="text" name="SubDescription" placeholder="Görevi yazın..." />
+    @Html.ValidationMessageFor(x => x.Subdescription, "", new { @style = "color: red" })
+    <br />
+    <label>Çalışma Tarihi:</label>
+    <input class="form-control" type="text" name="Date" placeholder="Çalışılan tarihi yazın..." />
+    @Html.ValidationMessageFor(x => x.Date, "", new {@style = "color: red"}) 
+    <br />
+    <label>Açıklama:</label>
+    <textarea class="form-control" name="Description" placeholder="Açıklama Girin"></textarea>
+    @Html.ValidationMessageFor(x=> x.Description, "", new {@style = "color: red"})
+    <br />
+    <div class="container-fluid">
+        <a href="/Experience/Index/" class="btn btn-info mx-4">Vazgeç</a>
+        <span class="">
+            <button class="btn btn-success mx-4">Kaydet</button>
+        </span>
+    </div>
+
+</form>
+
+

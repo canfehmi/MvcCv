@@ -1,0 +1,26 @@
+﻿@model MvcCv.DAL.Entities.Skill
+@{
+    ViewData["Title"] = "GetSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h1>Yetenek Güncelle</h1>
+
+<form method="post">
+    @Html.Label("Yetenek")
+    @Html.TextBoxFor(x => x.SkillName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.SkillName, "", new {@style = "color:red"})
+    <br />
+    @Html.Label("Deneyim Alt Açıklama")
+    @Html.TextBoxFor(x => x.Progress, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Progress, "", new { @style = "color:red" })
+    <br />
+    <div class="container-fluid">
+        <a href="/Skill/Index/" class="btn btn-info mx-4">Vazgeç</a>
+        <span class="">
+            <button class="btn btn-success mx-4">Kaydet</button>
+        </span>
+    </div>
+
+</form>

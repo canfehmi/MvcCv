@@ -1,0 +1,89 @@
+﻿@using MvcCv.DAL.Entities
+@model List<Skill>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    string renk = "";
+}
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Yetenek Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <a href="/Skill/NewSkill/" class="btn btn-info">Yeni Yetenek Ekle</a>
+                                <br />
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Yetenek</th>
+                                            <th>Progress Bar</th>
+                                            <th>Yüzde</th>
+                                            <th>Güncelle</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        @foreach(var item in Model)
+                                        {
+                                            if(item.Progress >= 0 && item.Progress <= 50)
+                                            {
+                                                renk = "progress-bar progress-bar-danger";
+                                            }
+                                            if(item.Progress >= 51 && item.Progress <=70)
+                                            {
+                                                renk = "progress-bar bg-warning";
+                                            }
+                                            if (item.Progress >= 71 && item.Progress <= 84)
+                                            {
+                                                renk = "progress-bar bg-primary";
+                                            }
+                                            if (item.Progress >= 85 && item.Progress <= 100)
+                                            {
+                                                renk = "progress-bar bg-success";
+                                            }
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.SkillName</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@renk" style="width: @item.Progress%;"></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge @renk">@item.Progress</span></td>
+                                                <td>
+                                                    <a href="/Skill/GetSkill/@item.ID" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt mx-2"></i>Güncelle</a>
+                                                </td>
+                                                <td><a href="/Skill/DeleteSkill/@item.ID" class="btn btn-danger btn-sm"><i class="fas fa-trash mx-2"></i>Sil</a></td>
+                                            </tr>
+                                        }                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>
