@@ -1,0 +1,38 @@
+﻿@model MvcCv.DAL.Entities.Experience;
+@{
+    ViewData["Title"] = "GetExperience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h1>Deneyim Güncelle</h1>
+
+<form method="post">
+    @Html.Label("Deneyim ID")
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    @Html.ValidationMessageFor( x => x.ID, "", new {@style = "color: red"})
+    <br />
+    @Html.Label("Deneyim Başlık")
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color: red" })
+    <br />
+    @Html.Label("Deneyim Alt Açıklama")
+    @Html.TextBoxFor(x => x.Subdescription, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Subdescription, "", new { @style = "color: red" })
+    <br />
+    @Html.Label("Deneyim Tarih")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Date, "", new { @style = "color: red" })
+    <br />
+    @Html.Label("Deneyim Açıklama")
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Description, "", new { @style = "color: red" })
+    <br />
+    <div class="container-fluid">
+        <a href="/Experience/Index/" class="btn btn-info mx-4">Vazgeç</a>
+        <span class="">
+            <button class="btn btn-success mx-4">Kaydet</button>
+        </span>
+    </div>
+
+</form>

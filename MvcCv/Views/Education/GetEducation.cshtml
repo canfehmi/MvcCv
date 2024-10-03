@@ -1,0 +1,37 @@
+﻿@model MvcCv.DAL.Entities.Education
+@{
+    ViewData["Title"] = "GetEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h1>Eğitim Düzenle</h1>
+
+<form method="post">
+    @Html.Label("Eğitim Başlık")
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color: red" })
+    <br />
+    @Html.Label("Eğitim Alt Açıklama 1")
+    @Html.TextBoxFor(x => x.Subdescription1, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Subdescription1, "", new { @style = "color: red" })
+    <br />
+    @Html.Label("Eğitim Alt Açıklama 2")
+    @Html.TextBoxFor(x => x.Subdescription2, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Subdescription2, "", new { @style = "color: red" })
+    <br />
+    @Html.Label("Tarih")
+    @Html.TextAreaFor(x => x.Date, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Date, "", new { @style = "color: red" })
+    <br />
+    @Html.Label("GNO")
+    @Html.TextAreaFor(x => x.GNO, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.GNO, "", new { @style = "color: red" })
+    <br />
+    <div class="container-fluid">
+        <a href="/Education/Index/" class="btn btn-info mx-4">Vazgeç</a>
+        <span class="">
+            <button class="btn btn-success mx-4">Kaydet</button>
+        </span>
+    </div>
+
+</form>

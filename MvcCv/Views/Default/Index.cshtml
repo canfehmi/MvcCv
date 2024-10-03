@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @await Component.InvokeAsync("_HeaderComponentPartial")        
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    @await Component.InvokeAsync("_NavbarComponentPartial")    
+    <!-- Page Content-->
+    <div class="container-fluid p-0">
+        <!-- About-->
+        @await Component.InvokeAsync("_AboutComponentPartial")
+        <!-- Experience-->
+        <section class="resume-section" id="experience">
+            @await Component.InvokeAsync("_ExperienceComponentPartial")            
+        </section>
+        <hr class="m-0" />
+        <!-- Education-->
+        @await Component.InvokeAsync("_EducationComponentPartial")        
+        <hr class="m-0" />
+        <!-- Skills-->
+        @await Component.InvokeAsync("_SkillsComponentPartial")        
+        <hr class="m-0" />
+        <!-- Interests-->
+        @await Component.InvokeAsync("_HobbiesComponentPartial")        
+        <hr class="m-0" />
+        <!-- Sertificates-->
+        @await Component.InvokeAsync("_SertificatesComponentPartial")
+        <hr class="m-0" />
+        <!-- Contact-->
+        @await Component.InvokeAsync("_ContactComponentPartial")        
+    </div>
+    @await Component.InvokeAsync("_ScriptsComponentPartial")
+</body>
+</html>

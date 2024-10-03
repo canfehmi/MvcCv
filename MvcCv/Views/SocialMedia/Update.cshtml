@@ -1,0 +1,29 @@
+﻿@model MvcCv.DAL.Entities.SocialMedia
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h1>Sosyal Medya Hesabı Güncelle</h1>
+
+<form method="post">
+    @Html.Label("Sosyal Medya Adı:")
+    @Html.TextBoxFor(x => x.SocialMediaName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.SocialMediaName, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Sosyal Medya URL")
+    @Html.TextBoxFor(x => x.SocialMediaUrl, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.SocialMediaUrl, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Sosyal Medya İkon")
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <br />
+    <div class="container-fluid">
+        <a href="/SocialMedia/Index/" class="btn btn-info mx-4">Vazgeç</a>
+        <span class="">
+            <button class="btn btn-success mx-4">Kaydet</button>
+        </span>
+    </div>
+
+</form>

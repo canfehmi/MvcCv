@@ -1,0 +1,36 @@
+﻿@using MvcCv.DAL.Entities
+@model List<MvcCv.DAL.Entities.Education>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Eğitimler</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Alt Başlık 1</th>
+        <th>Alt Başlık 2</th>
+        <th>Tarih</th>
+        <th>GNO</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Title</td>
+            <td>@item.Subdescription1</td>
+            <td>@item.Subdescription2</td>
+            <td>@item.Date</td>
+            <td>@item.GNO</td>
+            <td><a href="/Education/DeleteEducation/@item.ID" class="btn btn-danger"> Sil</a></td>
+            <td><a href="/Education/GetEducation/@item.ID" class="btn btn-warning">Düzenle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Education/NewEducation" class="btn btn-primary">Yeni Eğitim Ekle</a>

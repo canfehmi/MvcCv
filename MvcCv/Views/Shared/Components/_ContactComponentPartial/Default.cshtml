@@ -1,0 +1,22 @@
+﻿
+<section class="resume-section" id="contact">
+    <div class="resume-section-content">
+        <h2>İletişim</h2>
+        <form asp-action="SendMessage" method="post">
+            <label for="NameSurname">Ad Soyad:</label>
+            <input class="form-control" name="NameSurname" required />
+
+            <label for="Mail">Mail</label>
+            <input class="form-control" name="Mail" required/>
+
+            <label for="Subject">Konu:</label>
+            <input class="form-control" name="Subject" required/>
+
+            <label for="Message">Mesaj:</label>
+            <input class="form-control" name="Message" required/>
+            <br />
+            <button type="submit" class="btn btn-info">Gönder</button>
+        </form>
+    </div>
+
+</section>
